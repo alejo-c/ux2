@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Computer Store - UX2</title>
+		<link rel="stylesheet" href="/styles/global.css">
+	</head>
+
+	<body>
+		<nav id="navbar"></nav>
+		<main class="container">
+			<h1 class="title">Computer Components Store</h1>
+			<section id="store-catalog"></section>
+			<aside id="shopping-cart" class="aside-collapse">
+				<table>
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Name</th>
+							<th>Unit Price</th>
+							<th>Count</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody id="cart-products"></tbody>
+				</table>
+				<span id="cart-total">0</span>
+				<button id="cart-buy-btn" class="btn" disabled>Buy</button>
+			</aside>
+		</main>
+		<footer id="foot-notes"></footer>
+
+		<script src="/scripts/app.js"></script>
+		<script src="/components/navbar-component.js"></script>
+		<script src="/components/footer-component.js"></script>
+		<script src="/components/computer-components-store/catalog-product-component.js"></script>
+		<script src="/components/computer-components-store/cart-product-component.js"></script>
+		<script>
+			var cartProducts = []
+			var catalogProducts = [
+				{
+					id: "001",
+					name: "Monitor gamer Samsung F22T35 led 22\" dark blue gray 100V/240V",
+					image: "https://http2.mlstatic.com/D_NQ_NP_916724-MLA46165310467_052021-O.webp",
+					description: "",
+					price: 529900,
+				},
+				{
+					id: "002",
+					name: "Mouse de juego inalámbrico Logitech G Series Lightspeed G305 black",
+					image: "https://http2.mlstatic.com/D_NQ_NP_977588-MLA51172463642_082022-O.webp",
+					description: "",
+					price: 218900,
+				},
+				{
+					id: "003",
+					name: "Teclado Genius Smart KB-100 QWERTY español color negr",
+					image: "https://http2.mlstatic.com/D_NQ_NP_973390-MLA45316074278_032021-O.webp",
+					description: "",
+					price: 38090,
+				},
+				{
+					id: "004",
+					name: "Audífonos inalámbricos JBL Tune 760NC black",
+					image: "https://http2.mlstatic.com/D_NQ_NP_961753-MLA48750424812_012022-O.webp",
+					description: "",
+					price: 380417,
+				},
+				{
+					id: "005",
+					name: "Disco sólido SSD interno Kingston SA400S37/240G 240GB negro",
+					image: "https://http2.mlstatic.com/D_NQ_NP_662876-MLA52223574539_102022-O.webp",
+					description: "",
+					price: 115900,
+				},
+				{
+					id: "006",
+					name: "Tarjeta de video Nvidia Zotac Gaming GeForce GTX 16 Series GTX 1660 SUPER ZT-T16620F-10L 6GB",
+					image: "https://http2.mlstatic.com/D_NQ_NP_876217-MLA45732312195_042021-O.webp",
+					description: "",
+					price: 1699900,
+				},
+				{
+					id: "007",
+					name: "Memoria RAM color verde 8GB 1 Crucial CT8G4SFS8266",
+					image: "https://http2.mlstatic.com/D_NQ_NP_652139-MLA48832494470_012022-O.webp",
+					description: "",
+					price: 138000,
+				},
+				{
+					id: "008",
+					name: "Memoria USB Kingston DataTraveler 100 G3 DT100G3 32GB 3.0 negro",
+					image: "https://http2.mlstatic.com/D_NQ_NP_776128-MLA48453889924_122021-O.webp",
+					description: "",
+					price: 20500,
+				},
+				{
+					id: "009",
+					name: "Cámara web Logitech C270 HD 30FPS color negro",
+					image: "https://http2.mlstatic.com/D_NQ_NP_735127-MLA52219240184_102022-O.webp",
+					description: "",
+					price: 117000,
+				},
+				{
+					id: "010",
+					name: "Adaptador Receptor Wifi Usb Inalambrico 150 Mbps Con Antena",
+					image: "https://http2.mlstatic.com/D_NQ_NP_620661-MCO31095791964_062019-O.webp",
+					description: "",
+					price: 14900,
+				},
+				{
+					id: "011",
+					name: "Cable Hdmi 3 Metros Doble Filtro Mallado Punta Dorada",
+					image: "https://http2.mlstatic.com/D_NQ_NP_895108-MCO41065872997_032020-O.webp",
+					description: "",
+					price: 9900,
+				},
+				{
+					id: "012",
+					name: "Base Refrigerante Portátil Usb Negra Doble Ventilador",
+					image: "https://http2.mlstatic.com/D_NQ_NP_830922-MCO44915897419_022021-O.webp",
+					description: "",
+					price: 24900,
+				}
+			]
+		</script>
+		<script src="/components/computer-components-store/shopping-cart-component.js"></script>
+		<script src="/components/computer-components-store/catalog-component.js"></script>
+	</body>
+
+</html>
