@@ -1,4 +1,7 @@
-var questionApplesLeft, questionApplesRight
+var questionApplesLeft
+var questionApplesRight
+var correctAnswersCount = 0
+var totalAnswersCount = 0
 
 const additionTutorComponent = () => {
 	const equalsButton = getElementById('equals-btn')
@@ -76,10 +79,18 @@ const fillAnswerApples = (answerApplesLeft, answerApplesRight) => {
 }
 
 const correctOption = () => {
-	openModalDialog('Well Done', 'correct', `The answer is correct. Success rate: ${successRate}`)
+	totalAnswersCount++
+	correctAnswersCount++
+	successRate = correctAnswersCount / totalAnswersCount * 100
+	openModalDialog(
+		'Well Done',
+		'correct',
+		`The answer is correct. Success rate: ${successRate}%`
+	)
 }
 
 const wrongOption = () => {
+	totalAnswersCount++
 	openModalDialog('Incorrect', 'wrong', 'The answer is wrong, try again')
 }
 
