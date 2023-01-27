@@ -7,3 +7,5 @@ const addEvent = (element, type, action) => element.addEventListener(type, actio
 const isNumber = string => !isNaN(string) && !isNaN(parseFloat(string))
 
 const format = (string, value) => string.replace('{}', value)
+
+const randomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
