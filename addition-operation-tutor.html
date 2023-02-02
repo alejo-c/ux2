@@ -6,7 +6,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Addition Tutor - UX2</title>
+		<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/navbar.css">
+		<link rel="stylesheet" href="/styles/addition-tutor.css">
 	</head>
 
 	<body>
@@ -14,21 +17,23 @@
 
 		<main class="container">
 			<h1 class="title">Addition Operation Tutor</h1>
+
 			<section id="addition-section">
 				<div class="subtitle" id="addition-ecuation"></div>
 				<div class="cloud" id="question-cloud-left"></div>
+				<div id="addition-symbol">+</div>
 				<div class="cloud" id="question-cloud-right"></div>
 
-				<div class="subtitle" id="answers-left">?</div>
-				<div class="subtitle" id="answers-right">?</div>
-				<div class="cloud" id="answer-cloud-left"></ldiv>
+				<div class="subtitle" id="answer-left">?</div>
+				<div class="subtitle" id="answer-right">?</div>
+				<div class="cloud" id="answer-cloud-left"></div>
 				<div class="cloud" id="answer-cloud-right"></div>
 			</section>
 
 			<aside>
-				<div class="buttons">
-					<button id="equals-btn" class="btn"></button>	
-					<button id="reload-btn" class="btn"></button>
+				<div id="buttons">
+					<button id="equals-btn" class="btn big-btn"></button>
+					<button id="reload-btn" class="btn big-btn"></button>
 				</div>
 			</aside>
 		</main>
@@ -36,10 +41,13 @@
 		<footer id="foot-notes"></footer>
 
 		<script src="/scripts/app.js"></script>
+		<script>
+			setProperty('--color1', '#cd9302')
+		</script>
 		<script src="/components/navbar-component.js"></script>
 		<script src="/components/footer-component.js"></script>
 		<script src="/components/modal-dialog-component.js"></script>
-		<script src="addition-operation-tutor.js"></script>
+		<script src="/components/addition-operation-tutor/addition-tutor-component.js"></script>
 	</body>
 
 </html>
