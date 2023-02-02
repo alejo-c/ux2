@@ -6,7 +6,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Ice Cream Machine - UX2</title>
+		<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
 		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/navbar.css">
+		<link rel="stylesheet" href="/styles/ice-cream-machine.css">
 	</head>
 
 	<body>
@@ -17,7 +20,7 @@
 
 			<section id="vending-machine"></section>
 
-			<section class="buttons">
+			<section id="buttons">
 				<button id="total-sales-value-btn" class="btn">Total sales value</button>
 				<button id="units-sold-btn" class="btn">Units sold</button>
 			</section>
@@ -26,10 +29,14 @@
 		<footer id="foot-notes"></footer>
 
 		<script src="/scripts/app.js"></script>
+		<script>
+			setProperty('--color1', '#df2462')
+		</script>
 		<script src="/components/navbar-component.js"></script>
 		<script src="/components/footer-component.js"></script>
+		<script src="/components/modal-dialog-component.js"></script>
 		<script
-			src="/components//ice-cream-vending-machine/ice-cream-product-component.js"></script>
+			src="/components/ice-cream-vending-machine/ice-cream-product-component.js"></script>
 		<script src="/components/ice-cream-vending-machine/ice-cream-machine-component.js"></script>
 	</body>
 
