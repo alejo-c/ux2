@@ -1,0 +1,149 @@
+.container {
+	display: grid;
+	grid-template-areas: "catalog cart";
+}
+
+#store-catalog {
+	grid-area: catalog;
+	max-height: 85.1vh;
+	text-align: center;
+}
+
+#shopping-cart {
+	grid-area: cart;
+	display: none;
+	background-color: var(--color4);
+	max-height: 85.1vh;
+	padding-inline: .3em;
+	text-align: center;
+}
+
+.subtitle {
+	margin-top: .3em;
+	margin-bottom: .5em;
+	text-align: center;
+}
+
+.catalog-product {
+	border-radius: 15px;
+	box-shadow: 0px 4px 10px 0px #000;
+	background-color: var(--color3);
+	width: 12em;
+	margin-inline: .3em;
+	margin-block: 1.4em;
+	padding-inline: .6em;
+	padding-top: .4em;
+	padding-bottom: 1em;
+	display: inline-block;
+	text-align: center;
+}
+
+.catalog-product-desc {
+	height: 5em;
+	font-size: .77em;
+	text-align: left;
+}
+
+.catalog-product-image {
+	width: 10em;
+	height: 10em;
+	object-fit: contain;
+	border-bottom: .1px solid #fff;
+}
+
+.catalog-product-price {
+	text-align: right;
+	font-weight: bolder;
+	margin-bottom: .3em;
+}
+
+.cart-product-image, .bill-product-image {
+	width: 5em;
+	height: 5em;
+	object-fit: contain;
+}
+
+#cart-buy-btn:hover {
+	background-color: var(--color3);
+}
+
+#cart-buy-btn:active {
+	background-color: var(--color1);
+}
+
+.cart-spinner-count {
+	display: flex;
+	margin-top: 1.3em;
+	vertical-align: center;
+}
+
+.spinner-count-input {
+	display: inline-flex;
+	width: 2em;
+	margin: 0;
+	border-radius: 0;
+}
+
+.spinner-count-input:focus {
+	box-shadow: none;
+}
+
+.spinner-btn {
+	width: auto;
+	background-color: var(--color3);
+	margin: 0;
+	border-radius: 0;
+}
+
+.spinner-btn:hover{
+	font-weight: normal;
+}
+
+.spinner-decrement-btn {
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.spinner-increment-btn {
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+.cart-product-remove-btn {
+	width: 2.5em;
+	height: 2.5em;
+	border-radius: 100px;
+	margin: 0;
+	padding: 0;
+	font-weight: bolder;
+}
+
+#buy-section {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 3em;
+	margin-right: .7em;
+}
+
+#total-section {
+	margin-left: .7em;
+	margin-top: .7em;
+}
+
+#cart-total {
+	text-align: left;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+}
+
+.bill-product {
+	text-align: center;
+}
+
+.value {
+	color: bisque;	
+}
+
+.symbol {
+	font-weight: bolder;
+}

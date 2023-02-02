@@ -1,0 +1,70 @@
+#navbar {
+	background-color: var(--color2);
+	position: static;
+}
+
+#navbar-items {
+	list-style: none;
+	text-align: center;
+}
+
+.nav-item {
+	display: inline-block;
+}
+
+.nav-link {
+	display: inline-block;
+	border-radius: 20px;
+	margin-block: .5em;
+	text-decoration: none;
+	padding: .5em;
+	color: var(--color5);
+}
+
+.nav-link:visited {
+	color: var(--color5);
+}
+
+.nav-link:not(.active):hover {
+	background-color: var(--color4);
+}
+
+.active {
+	background-color: var(--color1);
+	box-shadow: 0px 4px 10px 0px black;
+	font-weight: bold;
+}
+
+.icon {
+	display: inline-block;
+	margin: 0em;
+	padding: 0em;
+	width: var(--icon-size);
+	height: var(--icon-size);
+	background-size: cover;
+	filter: invert(100%);
+	vertical-align: middle;
+	text-transform: uppercase;
+	margin-right: .25em;
+}
+
+#index-icon {
+	background-image: url('/images/favicon.png');
+	filter: invert(0%)
+}
+
+#triangle-icon {
+	background-image: url('/images/triangle-icon.png');
+}
+
+#store-icon {
+	background-image: url('/images/store-icon.png');
+}
+
+#ice-cream-icon {
+	background-image: url('/images/ice-cream-icon.png');
+}
+
+#addition-icon {
+	background-image: url('/images/addition-icon.png');
+}

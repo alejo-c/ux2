@@ -1,0 +1,54 @@
+.title {
+	font-size: x-large;
+}
+
+#vending-machine {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ice-cream-product {
+	background-color: var(--color4);
+	box-shadow: 0px 4px 10px 0px #000;
+	border-radius: 15px;
+	margin: 1em;
+	text-align: center;
+}
+
+.ice-cream-product-name {
+	padding: 1em;
+	border-radius: 15px;
+	font-weight: bolder;
+}
+
+.ice-cream-product-image {
+	width: 15em;
+	height: 15em;
+	object-fit: contain;
+	background-color: var(--color3);
+}
+
+.ice-cream-product-desc {
+	padding-inline: 1em;
+}
+
+.ice-cream-product-buttons {
+	margin-block: 1em;
+}
+
+#buttons {
+	margin-top: 0;
+	display: flex;
+	justify-content: center;
+}
+
+#total-sales-value-btn {
+	width: auto;
+	margin-right: 3em;
+	padding: 1.3em;
+}
+
+#units-sold-btn {
+	padding: 1.3em;
+}
