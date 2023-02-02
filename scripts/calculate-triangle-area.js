@@ -3,7 +3,9 @@ const formInputs = getElementsByClass('form-input')
 
 for (let input of formInputs) {
 	let label = getElementById(input.name)
-	input.oninput = () => label.textContent = input.value === '' ? '' : input.placeholder
+	input.onfocus = () => label.style.opacity = 1
+	input.oninput = () => label.style.opacity = 1
+	input.onblur = () => label.style.opacity = input.value ? 1 : 0
 }
 
 const isWarning = (expression, message) => {
@@ -63,10 +65,9 @@ const atSubmit = e => {
 }
 
 triangleForm.onsubmit = atSubmit
-// addEvent(triangleForm, 'submit', atSubmit)
 triangleForm.onreset = () => {
 	const formLabels = getElementsByClass('form-label')
-	for (const label of formLabels) label.textContent = ''
+	for (const label of formLabels) label.style.opacity = 0
 }
 
 const calculateTriangleArea = (a, b, c) => {
