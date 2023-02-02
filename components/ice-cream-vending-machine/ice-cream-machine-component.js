@@ -2,21 +2,21 @@ let iceCreamProducts = [
 	{
 		id: '01',
 		name: 'Helado Artesanal',
-		image: 'https://jumbocolombiaio.vtexassets.com/arquivos/ids/219109-1600-1600?v=637816519423130000&width=1600&height=1600&aspect=true',
+		image: 'https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/ice-cream%2F01.png?alt=media&token=e3014e40-a269-4399-955e-92a450084ee2',
 		price: 1800,
 		stock: 0
 	},
 	{
 		id: '02',
 		name: 'Bocato',
-		image: 'https://jumbocolombiaio.vtexassets.com/arquivos/ids/214754-800-800?v=637814279964600000&width=800&height=800&aspect=true',
+		image: 'https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/ice-cream%2F02.png?alt=media&token=44456b3d-06e2-4f52-9c84-56e06848cba9',
 		price: 3000,
 		stock: 0
 	},
 	{
 		id: '03',
 		name: 'Chococono',
-		image: 'https://cremhelado.com.co/wp-content/uploads/2022/12/cremhelado-chococono.png',
+		image: 'https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/ice-cream%2F03.png?alt=media&token=36072930-88c3-4f6c-97ef-f52ebb7d06f2',
 		price: 2000,
 		stock: 0
 	},
@@ -45,19 +45,19 @@ const setVendingMachine = () => {
 	const totalSalesValueButton = getElementById('total-sales-value-btn')
 	totalSalesValueButton.onclick = () => {
 		let total = soldProducts.reduce((sum, product) => sum += product.price, 0)
-		alert(`Total of sales: $${total}`)
+		openModalDialog('Total of sales', 'info', `Total: ${toCOPCurrency(total)}`)
 	}
 
 	const unitsSoldButton = getElementById('units-sold-btn')
 	unitsSoldButton.onclick = () => {
-		let message = `The count of sold products is:`
+		let message = ''
 		for (const product of iceCreamProducts) {
 			let count = soldProducts.filter(
 				soldProduct => product.id === soldProduct.id
 			).length
-			message += `\n${product.name}: ${count}`
+			message += `<div>${product.name}: ${count}</div>`
 		}
-		alert(message)
+		openModalDialog('The count of sold products is:','info',message)
 	}
 }
 
@@ -67,7 +67,7 @@ const sellProduct = id => {
 	if (product.stock < 1) return
 
 	const productStock = getElementById(`ice-cream-product-stock-${id}`)
-	productStock.innerText = --product.stock
+	productStock.innerHTML = `<strong>Stock:</strong> ${--product.stock}`
 
 	const soldProduct = { ...product }
 	delete soldProduct.stock
@@ -76,13 +76,15 @@ const sellProduct = id => {
 
 const restockProduct = id => {
 	const product = findProduct(id)
-	const newstock = prompt(`Enter number of units to stock (${product.name}):`)
+	let newstock = prompt(`Enter number of units to stock (${product.name}):`)
 
 	if (isNaN(newstock)) return alert('Non-valid stock')
+	newstock = parseInt(newstock)
 	if (newstock < 1) return alert('The new units to stock must be at least 1 unit')
 
 	const productStock = getElementById(`ice-cream-product-stock-${id}`)
-	productStock.innerText = product.stock += parseInt(newstock)
+	product.stock += newstock
+	productStock.innerHTML = `<strong>Stock:</strong> ${product.stock}`
 }
 
 const findSoldProduct = id => soldProducts.find(product => product.id === id)
