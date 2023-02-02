@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Computer Store - UX2</title>
+		<link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+		<link rel="stylesheet" href="/styles/global.css">
+		<link rel="stylesheet" href="/styles/scrollbar.css">
+		<link rel="stylesheet" href="/styles/navbar.css">
+		<link rel="stylesheet" href="/styles/computer-store.css">
+	</head>
+
+	<body>
+		<nav id="navbar"></nav>
+
+		<main class="container">
+			<section id="store-catalog" class="scroll">
+				<h1 class="title">Computer Components Store</h1>
+			</section>
+
+			<aside id="shopping-cart" class="scroll invert-scroll">
+				<h2 class="subtitle">Shopping Cart</h2>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Product</th>
+							<th>Unit Price</th>
+							<th>Count</th>
+							<th>Subtotal</th>
+						</tr>
+					</thead>
+					<tbody id="cart-products"></tbody>
+				</table>
+
+				<span id="buy-section">
+					<div id="total-section">
+						<strong>Total: </strong>
+						<span id="cart-total"></span>
+					</div>
+					<button id="cart-buy-btn" class="btn">Buy</button>
+				</span>
+			</aside>
+		</main>
+
+		<footer id="foot-notes"></footer>
+
+		<script src="/scripts/app.js"></script>
+		<script>
+			setProperty('--color1', 'royalblue')
+		</script>
+		<script src="/components/navbar-component.js"></script>
+		<script src="/components/footer-component.js"></script>
+		<script src="/components/computer-components-store/catalog-product-component.js"></script>
+		<script src="/components/computer-components-store/cart-product-component.js"></script>
+		<script src="/components/computer-components-store/bill-product.js"></script>
+		<script src="/components/modal-dialog-component.js"></script>
+		<script>
+
+			var cartProducts = []
+			var catalogProducts = [
+				{
+					id: "001",
+					description: "Monitor gamer reclinable Samsung F22T35 LED 22\", Full HD",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F001.png?alt=media&token=982bccb0-a938-456a-81b2-2ebc0d1e7030",
+					price: 529900,
+				},
+				{
+					id: "002",
+					description: "Mouse gamer inalámbrico Logitech G Series Lightspeed, 120.000dpi, Sensor optico, 6 botones",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F002.png?alt=media&token=c651de4b-4781-4a41-bf90-73058eb4dbee",
+					price: 218900,
+				},
+				{
+					id: "003",
+					description: "Teclado Genius Smart KB-100 QWERTY Español, Color negro, Pad numérico",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F003.png?alt=media&token=46ebdeac-6815-4d1b-9d7d-62400b5aa109",
+					price: 38090,
+				},
+				{
+					id: "004",
+					description: "Audífonos inalámbricos JBL Tune 760NC, Color negro, Bateria de 35h, Alcance de 10m, Con cancelación de ruido",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F004.png?alt=media&token=4369345c-b613-4b0e-828f-83dfbad9d832",
+					price: 372585,
+				},
+				{
+					id: "005",
+					description: "Disco sólido SSD interno Kingston SA400S37/240G 240GB negro",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F005.png?alt=media&token=68502a84-e48c-40ed-a3df-0c0c2d389b8d",
+					price: 115900,
+				},
+				{
+					id: "006",
+					description: "Tarjeta de video Nvidia Zotac Gaming GeForce GTX 16 Series GTX 1660 SUPER ZT-T16620F-10L 6GB",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F006.png?alt=media&token=9adb687e-76b6-494a-8643-0bf0b666b000",
+					price: 1699900,
+				},
+				{
+					id: "007",
+					description: "Memoria RAM color verde 8GB 1 Crucial CT8G4SFS8266",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F007.png?alt=media&token=440fa467-94cf-42d8-b53b-82ece757b6da",
+					price: 138000,
+				},
+				{
+					id: "008",
+					description: "Memoria USB Kingston DataTraveler 100 G3 DT100G3 32GB 3.0 negro",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F008.png?alt=media&token=1d17d7aa-74ac-4eae-af71-0153a71bb89b",
+					price: 20500,
+				},
+				{
+					id: "009",
+					description: "Cámara web Logitech C270 HD 30FPS color negro",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F009.png?alt=media&token=e907974b-44cd-49ae-b946-af7caea393ba",
+					price: 117000,
+				},
+				{
+					id: "010",
+					description: "Adaptador Receptor Wifi Usb Inalambrico 150 Mbps Con Antena",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F011.png?alt=media&token=9b885cb0-b30b-4842-a29c-3fb00e75e185jk7",
+					price: 14900,
+				},
+				{
+					id: "011",
+					description: "Cable Hdmi 3 Metros Doble Filtro Mallado Punta Dorada",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F010.png?alt=media&token=1bbd19b8-4a35-48c7-a480-39cddd38d354",
+					price: 9900,
+				},
+				{
+					id: "012",
+					description: "Base Refrigerante Portátil Usb Negra Doble Ventilador",
+					image: "https://firebasestorage.googleapis.com/v0/b/alejocux2.appspot.com/o/computer-components%2F012.png?alt=media&token=9c610923-f299-4b1e-aaa4-3640fb8c6d87",
+					price: 24900,
+				}
+			]
+		</script>
+		<script src="/components/computer-components-store/shopping-cart-component.js"></script>
+		<script src="/components/computer-components-store/catalog-component.js"></script>
+	</body>
+
+</html>
