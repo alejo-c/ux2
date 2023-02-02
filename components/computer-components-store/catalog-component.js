@@ -5,12 +5,14 @@ const storeCatalogComponent = () => {
 		catalogComponent.innerHTML += catalogProductComponent(product)
 
 	const buyProductButtons = getElementsByClass('add-cart-product-btn')
-	for (const buyProductButton of buyProductButtons)
+	buyProductButtons.forEach(buyProductButton => {
 		buyProductButton.onclick = () => {
 			const id = buyProductButton.id.split('-').pop()
 			addCartProduct(id)
 			reloadCartComponent()
 		}
+	})
 }
+
 
 addEvent(document, 'DOMContentLoaded', storeCatalogComponent)
